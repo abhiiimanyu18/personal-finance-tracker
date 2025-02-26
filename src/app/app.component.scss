@@ -1,0 +1,32 @@
+.container {
+  margin: 20px;
+}
+.actions {
+  display: flex;
+  justify-content: end;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background: #f1f1f1;
+  font-size: 14px;
+  z-index: 10000;
+}
+
+.transaction-list {
+  margin: 1rem;
+}
+
+.inside-container {
+  display: grid;
+  grid-template-columns: 19fr 8fr;
+}

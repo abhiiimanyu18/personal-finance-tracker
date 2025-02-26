@@ -1,0 +1,35 @@
+mat-card {
+  width: 40%;
+}
+
+mat-card-title {
+  padding: 1rem;
+}
+
+.income {
+  color: lightgreen;
+  font-size: larger;
+}
+
+.expenses {
+  color: lightcoral;
+  font-size: larger;
+}
+
+.balance {
+  color: lightgray;
+  font-size: larger;
+}
+
+.padding {
+  padding: 0.5rem;
+}
+
+.grid-container {
+  display: flex;
+  gap: 10px;
+}
+
+.chart {
+  padding: 1rem;
+}

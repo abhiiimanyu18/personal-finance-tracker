@@ -1,0 +1,43 @@
+.full-width {
+  width: 100%;
+}
+.half-width {
+  width: 50%;
+}
+.transaction-form {
+  max-width: 500px;
+}
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+mat-error {
+  color: red;
+}
+
+mat-form-field {
+  padding-bottom: 1rem;
+}
+
+.save-button {
+  color: lightgreen;
+  width: 7rem;
+}
+
+.cancel-button {
+  color: lightcoral;
+  margin-left: 1rem;
+  width: 7rem;
+}
+
+.radio-selection {
+  padding-left: 0.5rem;
+}
+
+::ng-deep mat-radio-button {
+  .mdc-label {
+    color: black !important;
+  }
+}

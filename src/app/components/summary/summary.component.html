@@ -1,0 +1,26 @@
+<div class="grid-container">
+  <mat-card>
+    <mat-card-title class="heading-color">Summary</mat-card-title>
+    <mat-card-content>
+      <div class="income padding">
+        Total Income: {{ totalIncome | currency : "₹" }}
+      </div>
+      <div class="expenses padding">
+        Total Expenses: {{ totalExpenses | currency : "₹" }}
+      </div>
+      <div class="balance padding">Balance: {{ balance | currency : "₹" }}</div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="transactions !== []">
+    <mat-card-title class="heading-color">Pie chart</mat-card-title>
+    <canvas
+      class="chart"
+      baseChart
+      [data]="chartData"
+      [labels]="chartLabels"
+      type="pie"
+    >
+    </canvas>
+  </mat-card>
+</div>

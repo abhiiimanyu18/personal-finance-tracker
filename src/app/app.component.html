@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <span>Personal Finance Tracker</span>
+</mat-toolbar>
+
+<div class="container">
+  <div class="inside-container">
+    <app-summary [transactions]="transactions"></app-summary>
+
+    <div *ngIf="!showForm" class="actions">
+      <button mat-raised-button color="accent" (click)="openForm()">
+        Add Transaction
+      </button>
+    </div>
+
+    <div *ngIf="showForm" class="form">
+      <app-transaction-form
+        [transaction]="editingTransaction"
+        (saveTransaction)="onSaveTransaction($event)"
+        (cancelTransaction)="cancelForm($event)"
+      >
+      </app-transaction-form>
+    </div>
+  </div>
+
+  <app-transaction-list
+    class="transaction-list"
+    [transactions]="transactions"
+    (editTransaction)="onEditTransaction($event)"
+    (deleteTransaction)="onDeleteTransaction($event)"
+  >
+  </app-transaction-list>
+</div>
+<p class="footer">{{ footerText }}</p>

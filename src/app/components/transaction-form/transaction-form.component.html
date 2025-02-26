@@ -1,0 +1,76 @@
+<form
+  [formGroup]="transactionForm"
+  (ngSubmit)="onSubmit()"
+  class="transaction-form"
+>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Enter description"
+      formControlName="description"
+    />
+    <mat-error *ngIf="transactionForm.get('description')?.hasError('required')">
+      Description is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      type="number"
+      placeholder="Enter amount"
+      formControlName="amount"
+    />
+    <mat-error *ngIf="transactionForm.get('amount')?.hasError('required')">
+      Amount is required.
+    </mat-error>
+    <mat-error *ngIf="transactionForm.get('amount')?.hasError('pattern')">
+      Please enter a valid amount.
+    </mat-error>
+    <mat-error *ngIf="transactionForm.get('amount')?.hasError('min')">
+      Minimum amount must be a positive value.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="transactionForm.get('date')?.hasError('required')">
+      Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="half-width category-dropdown">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selectedOption" formControlName="category">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-radio-group formControlName="type" class="half-width radio-selection">
+    <mat-radio-button value="Income" (change)="onSelectingIncome()"
+      >Income</mat-radio-button
+    >
+    <mat-radio-button value="Expense" (change)="onSelectingExpenses()"
+      >Expense</mat-radio-button
+    >
+  </mat-radio-group>
+
+  <div class="button-group">
+    <button mat-raised-button type="submit" class="save-button">Save</button>
+    <button
+      mat-raised-button
+      type="cancel"
+      class="cancel-button"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>
